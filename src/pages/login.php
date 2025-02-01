@@ -4,6 +4,7 @@ if (isset($_SESSION["user"])) {
     redirectUrl("index.php");
 }
 
+// Handle logging in
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     if (!validateCSRFToken($_POST["csrf_token"])) {
         die("Invalid CSRF token.");

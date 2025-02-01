@@ -49,3 +49,7 @@ function validateCSRFToken($token) {
 function redirectUrl($url) {
     echo '<meta http-equiv="refresh" content="0; URL=' . $url . '">';
 }
+
+function logout() {
+    session_destroy();
+}

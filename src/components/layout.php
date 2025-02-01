@@ -4,6 +4,11 @@ include ".\utils\config.php";
 if (isset($protected) && $protected) {
     header("Location: login.php");
 }
+
+if (isset($_GET["logout"])) {
+    logout();
+    header("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +33,25 @@ if (isset($protected) && $protected) {
                     <ul class="navbar-nav">
                         <!-- TODO: movie search -->
                         <!-- TODO: user profile-->
-                        <li class="nav-item">
-                            <a href="login.php" class="btn btn-primary">Login/Register</a>
-                        </li>
+                        <?php 
+                        if (isset($_SESSION["user"])) { 
+                        ?>
+                            <li class="nav-item dropdown" >
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">My Account</a>
+                                <ul class="dropdown-menu" style="margin: 0 -50px !important">
+                                    <li><a href="settings.php" class="dropdown-item">Settings</a></li>
+                                    <li><a href="?logout=true" class="dropdown-item">Logout</a></li>
+                                </ul>
+                            </li>
+                        <?php 
+                        } else { 
+                        ?>
+                            <li class="nav-item">
+                                <a href="login.php" class="btn btn-primary">Login/Register</a>
+                            </li>
+                        <?php 
+                        } 
+                        ?>
                     </ul>
                 </div>
             </div>
