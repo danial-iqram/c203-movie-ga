@@ -28,7 +28,7 @@ $movies = $db->getMovies();
                         <p class="truncate"><?= $movie["synopsis"] ?></p>
                         
                     </div>
-                    <a class="btn btn-primary see-more-button" href="movie.php?id=<?= $movie["id"] ?>">See More</a>
+                    <a class="btn btn-success see-more-button" href="movie.php?id=<?= $movie["id"] ?>">See More</a>
                 </div>
             </div>
             <?php } ?>

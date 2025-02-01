@@ -122,7 +122,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
                 <?php } ?>
             </div>
 
-            <button class="btn btn-primary" type="submit" id="submitButton">Register</button>
+            <button class="btn btn-success" type="submit" id="submitButton">Register</button>
             <p class="pt-3">Have an account? <a href="login.php">Login</p>
         </fieldset>
     </form>

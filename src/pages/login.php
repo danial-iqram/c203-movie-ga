@@ -62,7 +62,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
                
             </div>
 
-            <button class="btn btn-primary" type="submit" id="submitButton">Login</button>
+            <button class="btn btn-success" type="submit" id="submitButton">Login</button>
             <p class="pt-3">Not a member yet? <a href="register.php">Register</p>
         </fieldset>
     </form>

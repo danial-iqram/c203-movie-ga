@@ -46,7 +46,7 @@ if (isset($_GET["logout"])) {
                         } else { 
                         ?>
                             <li class="nav-item">
-                                <a href="login.php" class="btn btn-primary">Login / Register</a>
+                                <a href="login.php" class="btn btn-success">Login / Register</a>
                             </li>
                         <?php 
                         } 
