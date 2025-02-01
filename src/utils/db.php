@@ -60,14 +60,14 @@ class DB {
             ->fetch()[0];
     }
 
-    public function getUserByEmail($email) {
+    public function getUserByEmailOrUsername($input) {
         $statement = $this->pdo->prepare("
             SELECT username, name, dob, email
             FROM users
-            WHERE email = :email
+            WHERE email = :input OR username = :input
         ");
         
-        $statement->execute(["email" => $email]);
+        $statement->execute(["input" => $input]);
 
         return $statement->fetch();
     }

@@ -36,24 +36,6 @@ if (count($db->getReviews()) === 0) {
     $db->addReview([ "movie_id" => 2, "user_id" => 3, "review" => "Quite boring.", "rating" => 2, "date_posted" => "2023-04-19" ]);
 }
 
-/*
--- Insert Sample Data
-        INSERT INTO movies (movieTitle, movieGenre, runningTime, language, picture, director, cast, synopsis) VALUES
-        ('John Wick: Chapter 4', 'Action/ Thriller', '170 minutes', 'English(Sub: Chinese, Malay)', 'JohnWick.png', 'Chad Stahelski', 'Keanu Reeves, Donnie Yen, Bill Skarsgard, Laurence Fishburne, Hiroyuki Sanada, Lance Reddick, Scott Adkins', 'John Wick (Keanu Reeves) uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.'),
-        ('My Puppy', 'Drama', '113 minutes', 'Korean(Sub: English, Chinese)', 'mypuppy.png', 'Jason Kim', 'Yoo Yeon-seok, Cha Tae-hyun', 'Min-soo (Yoo Yeon-seok) is an ordinary office worker who dreams of a perfect family. He has a dog, Rooney, whom he treats as a younger brother. Unexpected circumstances arise when he can no longer live with Rooney due to his fiancée’s allergy.'),
-        ('Suzume', 'Animation', '122 minutes', 'Japanese(Sub: English, Chinese)', 'suzume.png', 'Makoto Shinkai', 'Nanoka Hara, Hokuto Matsumura, Eri Fukatsu', 'A 17-year-old girl named Suzume embarks on a journey across Japan to close mysterious doors that bring disasters.');
-
-        INSERT INTO users (username, password, name, dob, email) VALUES
-        ('peter', 'peterlim', 'Peter Lim', '2008-08-13', 'peter@gmail.com'),
-        ('mary', 'marytan', 'Mary Tan', '1977-12-08', 'mary@gmail.com'),
-        ('david', 'davidlee', 'David Lee', '1999-08-26', 'davidLee@gmail.com');
-
-        INSERT INTO reviews (movieId, userId, review, rating, datePosted) VALUES
-        (1, 3, 'Joined in the Avatar bandwagon late but what a spectacle. stunning visual effects', 5, '2023-03-29'),
-        (2, 1, 'Heartwarming show, definitely worth a watch', 5, '2023-04-04'),
-        (2, 3, 'Quite boring.', 2, '2023-04-19');
-*/
-
 // CSRF Configuration
 if (empty($_SESSION["csrf_token"])) {
     $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
