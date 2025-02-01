@@ -1,7 +1,7 @@
 <?php
 // If user is already logged in, redirect to home page
 if (isset($_SESSION["user"])) {
-    redirectUrl("index.php");
+    redirectUrl("/");
 }
 
 // Handle logging in
@@ -15,7 +15,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     if ($user && $db->isValidUserCredentials($user["id"], $_POST["password"])) {
         $_SESSION["user"] = $user;
 
-        redirectUrl("index.php");
+        redirectUrl("/");
     } else {
         $invalidCredentials = true;
     }

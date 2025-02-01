@@ -1,7 +1,7 @@
 <?php
 // If user is already logged in, redirect to home page
 if (isset($_SESSION["user"])) {
-    redirectUrl("index.php");
+    redirectUrl("/");
 }
 
 $invalidCredentials = [];
@@ -46,7 +46,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
             "email" => $email 
         ]);
         $_SESSION["user"] = $db->getUserByEmailOrUsername($username);
-        redirectUrl("index.php");
+        redirectUrl("/");
     }
 }
 ?>

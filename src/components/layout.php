@@ -7,7 +7,7 @@ if (isset($protected) && $protected) {
 
 if (isset($_GET["logout"])) {
     logout();
-    header("Location: index.php");
+    header("Location: /");
 }
 ?>
 
@@ -24,7 +24,7 @@ if (isset($_GET["logout"])) {
         <nav class="navbar navbar-expand-sm bg-success navbar-dark sticky-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand fw-medium">🍿 Movie Reviews GA</a>
+                    <a class="navbar-brand fw-medium" href="/">🍿 Movie Reviews GA</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,6 @@ if (isset($_GET["logout"])) {
                 <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <!-- TODO: movie search -->
-                        <!-- TODO: user profile-->
                         <?php 
                         if (isset($_SESSION["user"])) { 
                         ?>
@@ -47,7 +46,7 @@ if (isset($_GET["logout"])) {
                         } else { 
                         ?>
                             <li class="nav-item">
-                                <a href="login.php" class="btn btn-primary">Login/Register</a>
+                                <a href="login.php" class="btn btn-primary">Login / Register</a>
                             </li>
                         <?php 
                         } 
