@@ -10,10 +10,16 @@ if (isset($_GET["logout"])) {
     header("Location: /");
     exit();
 }
+
+$theme = "dark";
+
+if (isset($_SESSION["user"]) && isset($_SESSION["user"]["theme"])) {
+    $theme = $_SESSION["user"]["theme"];
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="<?= $theme ?>">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
