@@ -62,7 +62,7 @@ class DB {
 
     public function getUserByEmailOrUsername($input) {
         $statement = $this->pdo->prepare("
-            SELECT username, name, dob, email
+            SELECT id, username, name, dob, email
             FROM users
             WHERE email = :input OR username = :input
         ");
@@ -70,6 +70,15 @@ class DB {
         $statement->execute(["input" => $input]);
 
         return $statement->fetch();
+    }
+
+    public function isValidUserCredentials($id, $password) {
+        $statement = $this->pdo->prepare("SELECT password FROM users WHERE id = :id");
+
+        $statement->execute(["id" => $id]);
+        $dbPassword = $statement->fetch()["password"];
+
+        return password_verify($password, $dbPassword);
     }
 
     public function addUser($props) {

@@ -1,7 +1,9 @@
 <?php
-    if (isset($protected) && $protected) {
-        header("Location: login");
-    }
+include ".\utils\config.php";
+
+if (isset($protected) && $protected) {
+    header("Location: login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +29,7 @@
                         <!-- TODO: movie search -->
                         <!-- TODO: user profile-->
                         <li class="nav-item">
-                            <a href="login" class="btn btn-primary">Login/Register</a>
+                            <a href="login.php" class="btn btn-primary">Login/Register</a>
                         </li>
                     </ul>
                 </div>
