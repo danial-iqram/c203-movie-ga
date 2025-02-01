@@ -95,13 +95,11 @@ class DB {
         return $this->pdo->query("SELECT * FROM movies")->fetchAll();
     }
 
-    public function addMovie($props) {
-        $statement = $this->pdo->prepare("
-            INSERT INTO movies (title, genre, running_time, language, picture, director, cast, synopsis)
-            VALUES (:title, :genre, :running_time, :language, :picture, :director, :cast, :synopsis)
-        ");
+    public function getMovie($id) {
+        $statement = $this->pdo->prepare("SELECT * FROM movies WHERE id = :id");
+        $statement->execute(["id" => $id]);
 
-        $statement->execute($props);
+        return $statement->fetch();
     }
 
     // Review Helpers
