@@ -16,7 +16,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         $_SESSION["user"] = $user;
 
         redirectUrl("index.php");
-        exit();
     } else {
         $invalidCredentials = true;
     }
@@ -64,7 +63,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             </div>
 
             <button class="btn btn-primary" type="submit" id="submitButton">Login</button>
-            <p class="pt-3">Not a member yet? <a href="register.php">Register now!</p>
+            <p class="pt-3">Not a member yet? <a href="register.php">Register</p>
         </fieldset>
     </form>
 </div>

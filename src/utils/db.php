@@ -64,7 +64,7 @@ class DB {
         $statement = $this->pdo->prepare("
             SELECT id, username, name, dob, email
             FROM users
-            WHERE email = :input OR username = :input
+            WHERE lower(email) = lower(:input) OR lower(username) = lower(:input)
         ");
         
         $statement->execute(["input" => $input]);
