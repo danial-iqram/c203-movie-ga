@@ -2,6 +2,7 @@
 // If user is already logged in, redirect to home page
 if (isset($_SESSION["user"])) {
     redirectUrl("/");
+    exit();
 }
 
 // Handle logging in
@@ -16,6 +17,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         $_SESSION["user"] = $user;
 
         redirectUrl("/");
+        exit();
     } else {
         $invalidCredentials = true;
     }

@@ -8,6 +8,7 @@ if (isset($protected) && $protected) {
 if (isset($_GET["logout"])) {
     logout();
     header("Location: /");
+    exit();
 }
 ?>
 
@@ -24,7 +25,7 @@ if (isset($_GET["logout"])) {
         <nav class="navbar navbar-expand-sm bg-success navbar-dark sticky-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand fw-medium" href="/">🍿 Movie Reviews GA</a>
+                    <a class="navbar-brand fw-medium btn btn-success" href="/">🍿 Movie Reviews GA</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -37,7 +38,7 @@ if (isset($_GET["logout"])) {
                         ?>
                             <li class="nav-item dropdown" >
                                 <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"><?= $_SESSION["user"]["name"] ?></a>
-                                <ul class="dropdown-menu" style="margin: 0 -50px !important">
+                                <ul class="dropdown-menu" style="margin: 0 -75px !important">
                                     <li><a href="settings.php" class="dropdown-item">Settings</a></li>
                                     <li><a href="?logout=true" class="dropdown-item">Logout</a></li>
                                 </ul>
