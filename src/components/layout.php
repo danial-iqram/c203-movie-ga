@@ -37,7 +37,7 @@ if (isset($_GET["logout"])) {
                         if (isset($_SESSION["user"])) { 
                         ?>
                             <li class="nav-item dropdown" >
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">My Account</a>
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"><?= $_SESSION["user"]["name"] ?></a>
                                 <ul class="dropdown-menu" style="margin: 0 -50px !important">
                                     <li><a href="settings.php" class="dropdown-item">Settings</a></li>
                                     <li><a href="?logout=true" class="dropdown-item">Logout</a></li>
