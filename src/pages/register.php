@@ -72,12 +72,12 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 
 <div id="registerFormContainer">
     <form action="register.php" method="POST" class="pt-3" id="registerForm">
-        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']); ?>">
         <fieldset class="border rounded-3 p-3 text-center mx-auto">
             <h2 class="pb-2">Register?</h2>
 
             <div class="form-floating pb-3">
-                <input type="username" class="form-control <?php if (isset($invalidCredentials["username"])) { echo "is-invalid"; } ?>" value="<?php echo $username ?>" name="username" placeholder="Username" required />
+                <input type="username" class="form-control <?php if (isset($invalidCredentials["username"])) { echo "is-invalid"; } ?>" value="<?= $username ?>" name="username" placeholder="Username" required />
                 <label for="username">Username</label>
                 <?php if (isset($invalidCredentials["username"])) { ?>
                     <div id="feedback" class="invalid-feedback text-start">
@@ -87,7 +87,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
             </div>
 
             <div class="form-floating pb-3">
-                <input type="email" class="form-control <?php if (isset($invalidCredentials["email"])) { echo "is-invalid"; } ?>" value="<?php echo $email ?>" name="email" placeholder="Email" required />
+                <input type="email" class="form-control <?php if (isset($invalidCredentials["email"])) { echo "is-invalid"; } ?>" value="<?= $email ?>" name="email" placeholder="Email" required />
                 <label for="email">Email</label>
                 <?php if (isset($invalidCredentials["email"])) { ?>
                     <div id="feedback" class="invalid-feedback text-start">
@@ -97,12 +97,12 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
             </div>
 
             <div class="form-floating pb-3">
-                <input type="text" class="form-control" name="name" placeholder="name" value="<?php echo $name ?>" required />
+                <input type="text" class="form-control" name="name" placeholder="name" value="<?= $name ?>" required />
                 <label for="name">Name</label>
             </div>
 
             <div class="form-floating pb-3">
-                <input type="date" class="form-control" name="date" placeholder="date" value="<?php echo $date ?>" required />
+                <input type="date" class="form-control" name="date" placeholder="date" value="<?= $date ?>" required />
                 <label for="date">Date of Birth</label>
                 
             </div>

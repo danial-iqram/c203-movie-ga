@@ -43,7 +43,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
 <div id="loginFormContainer">
     <form action="login.php" method="POST" class="pt-3" id="loginForm">
-        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']); ?>">
         <fieldset class="border rounded-3 p-3 text-center mx-auto">
             <h2 class="pb-2">Login?</h2>
 
