@@ -2,4 +2,4 @@
 $title = "Home";
 $page = "pages/home.php";
 
-include "components/layout.php";
+include __DIR__ . "/components/layout.php";
