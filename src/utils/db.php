@@ -107,6 +107,13 @@ class DB {
         return $statement->fetch();
     }
 
+    public function getMoviesBySearch($q) {
+        $statement = $this->pdo->prepare("SELECT * FROM movies WHERE title LIKE :q OR genre LIKE :q OR synopsis LIKE :q");
+        $statement->execute(["q" => $q]);
+
+        return $statement->fetchAll();
+    }
+
     // Review Helpers
     public function getReviews() {
         return $this->pdo->query("SELECT * FROM reviews")->fetchAll();

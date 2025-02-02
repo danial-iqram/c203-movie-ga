@@ -16,6 +16,11 @@ $theme = "dark";
 if (isset($_SESSION["user"]) && isset($_SESSION["user"]["theme"])) {
     $theme = strtolower($_SESSION["user"]["theme"]);
 }
+
+$q = "";
+if (isset($_GET["q"])) {
+    $q = $_GET["q"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +43,10 @@ if (isset($_SESSION["user"]) && isset($_SESSION["user"]["theme"])) {
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
-                        <!-- TODO: movie search -->
+                        <form action="/" class="d-flex" method="GET" style="padding-right: 10px">
+                            <input type="text" class="form-control me-2" name="q" placeholder="Search" value="<?= $q ?>" />
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </form>
                         <?php 
                         if (isset($_SESSION["user"])) { 
                         ?>

@@ -1,5 +1,10 @@
 <?php
-$movies = $db->getMovies();
+if (isset($_GET["q"])) {
+    $movies = $db->getMoviesBySearch('%' . $_GET["q"] . '%');
+} else {
+    $movies = $db->getMovies();
+}
+
 ?>
 
 <style>
