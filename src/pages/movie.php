@@ -10,6 +10,8 @@ if (!$movie) {
     redirectUrl("/");
     exit();
 }
+
+$reviews = $db->getReviewsByMovie($movie["id"]);
 ?>
 
 <style>
@@ -18,6 +20,8 @@ if (!$movie) {
         justify-content: center;
         align-items: center;
         margin-top: 10px;
+        flex-direction: column;
+        gap: 25px;
     }
 
     .movie-body {
@@ -78,22 +82,17 @@ if (!$movie) {
             <a class="btn btn-success add-review-button">Add Review</a>
         </div>
     </div>
-</div>
-
-<!-- <div class="pt-3 pb-3">
-    <div class="mx-auto text-center" style="width: 50%">
-        <div class="card-body">
-            <h3 class="card-title"><?= $movie["title"] ?></h3>
-            <img src="../images/<?= $movie["picture"] ?>" alt="" style="width: 60%" class="card-img-top" style="object-fit: cover">
-
-            <br/><br/><b>Synopsis:</b>
-            <br/><p><?= $movie["synopsis"] ?></p>
-
-            <br/><b>Genre: </b><?= $movie["genre"] ?>
-            <br/><b>Running Time: </b><?= $movie["running_time"] ?> minutes
-            <br/><b>Language: </b><?= $movie["language"] ?>
-            <br/><b>Director: </b><?= $movie["director"] ?>
-            <br/><b>Casts: </b><?= $movie["cast"] ?>
+    <div>
+        <h3 style="text-align: center">Reviews</h3>
+        <div class="container-fluid">
+            <?php foreach ($reviews as $review) { ?>
+                <div class="col mx-auto text-center pb-3">
+                    <div class="card" style="padding: 0 5px">
+                        <h5 class="card-title pt-1"><?= $review["name"] . " (@" . $review["username"] . ") - " . $review["rating"] . "/5" ?></h5>
+                                <p><?= $review["review"]; ?></p>
+                            </div>
+                        </div>
+            <?php } ?>
         </div>
     </div>
-</div> -->
+</div>
