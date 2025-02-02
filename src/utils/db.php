@@ -62,7 +62,7 @@ class DB {
 
     public function getUserByEmailOrUsername($input) {
         $statement = $this->pdo->prepare("
-            SELECT id, username, name, dob, email
+            SELECT id, username, name, dob, email, theme
             FROM users
             WHERE lower(email) = lower(:input) OR lower(username) = lower(:input)
         ");
@@ -87,6 +87,11 @@ class DB {
             VALUES (:username, :password, :name, :dob, :email)
         ");
 
+        $statement->execute($props);
+    }
+
+    public function updateUser($props) {
+        $statement = $this->pdo->prepare("UPDATE users SET username = :username, email = :email, name = :name, dob = :dob, theme = :theme WHERE id = :id");
         $statement->execute($props);
     }
 

@@ -14,7 +14,7 @@ if (isset($_GET["logout"])) {
 $theme = "dark";
 
 if (isset($_SESSION["user"]) && isset($_SESSION["user"]["theme"])) {
-    $theme = $_SESSION["user"]["theme"];
+    $theme = strtolower($_SESSION["user"]["theme"]);
 }
 ?>
 
