@@ -117,7 +117,7 @@ class DB {
     }
 
     public function getReviewsByMovie($movie) {
-        $statement = $this->pdo->prepare("SELECT r.*, u.name, u.username FROM reviews r INNER JOIN users u ON u.id = r.user_id WHERE r.movie_id = :movie_id");
+        $statement = $this->pdo->prepare("SELECT r.*, u.name, u.username FROM reviews r INNER JOIN users u ON u.id = r.user_id WHERE r.movie_id = :movie_id ORDER BY r.date_posted DESC");
         $statement->execute(["movie_id" => $movie]);
 
         return $statement->fetchAll();

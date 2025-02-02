@@ -76,22 +76,28 @@ $reviews = $db->getReviewsByMovie($movie["id"]);
                             <?= $movie["cast"] ?>
                         </div>
                     </li>
-                    <li class="list-group-item"></li>
                 </ul>
             </div>
-            <a class="btn btn-success add-review-button">Add Review</a>
         </div>
     </div>
     <div>
-        <h3 style="text-align: center">Reviews</h3>
+        <h3 style="text-align: center">Reviews <a href="review.php?action=add&id=<?= $movie["id"] ?>" class="btn btn-success add-review-button">Add Review</a></h3>
+      
         <div class="container-fluid">
             <?php foreach ($reviews as $review) { ?>
                 <div class="col mx-auto text-center pb-3">
                     <div class="card" style="padding: 0 5px">
                         <h5 class="card-title pt-1"><?= $review["name"] . " (@" . $review["username"] . ") - " . $review["rating"] . "/5" ?></h5>
-                                <p><?= $review["review"]; ?></p>
+                        <p><?= $review["review"]; ?></p>
+
+                        <?php if ($review["user_id"] == $_SESSION["user"]["id"]) { ?>
+                            <div>
+                                <a class="btn btn-success" style="width: fit-content; margin-bottom: 10px; margin-left: 10px; padding-inline: 25px;" href="review.php?action=edit&id=<?= $review["id"] ?>">Edit</a>
+                                <a class="btn btn-danger" style="width: fit-content; margin-bottom: 10px; margin-left: 10px; padding-inline: 25px;" href="review.php?action=delete&id=<?= $review["id"] ?>">Delete</a>
                             </div>
-                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
             <?php } ?>
         </div>
     </div>

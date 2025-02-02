@@ -1,7 +1,7 @@
 <?php
 include ".\utils\config.php";
 
-if (isset($protected) && $protected) {
+if (isset($protected) && $protected && !isset($_SESSION["user"])) {
     header("Location: login.php");
 }
 
