@@ -107,6 +107,13 @@ class DB {
         return $this->pdo->query("SELECT * FROM reviews")->fetchAll();
     }
 
+    public function getReview($id) {
+        $statement = $this->pdo->prepare("SELECT * FROM reviews WHERE id = :id");
+        $statement->execute(["id" => $id]);
+
+        return $statement->fetch();
+    }
+
     public function addReview($props) {
         $statement = $this->pdo->prepare("
             INSERT INTO reviews (movie_id, user_id, review, rating, date_posted)
@@ -114,6 +121,16 @@ class DB {
         ");
 
         $statement->execute($props);
+    }
+
+    public function updateReview($id, $review, $rating) {
+        $statement = $this->pdo->prepare("
+            UPDATE reviews
+            SET review = :review, rating = :rating
+            WHERE id = :id
+        ");
+
+        $statement->execute(["id" => $id, "review" => $review, "rating" => $rating]);
     }
 
     public function getReviewsByMovie($movie) {
