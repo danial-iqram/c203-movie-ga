@@ -24,6 +24,18 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
             redirectUrl("/");
             exit();
         }
+    } else if ($action === "delete") {
+        $review = $db->getReview($id);
+
+        if ($review["user_id"] !== $_SESSION["user"]["id"]) {
+            redirectUrl("/");
+            exit();
+        }
+
+        $db->deleteReview($id);
+        
+        redirectUrl("movie.php?id=" . $review["movie_id"]);
+        exit();
     }
 } elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["action"]) && isset($_POST["id"])) {

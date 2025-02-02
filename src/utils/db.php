@@ -133,6 +133,11 @@ class DB {
         $statement->execute(["id" => $id, "review" => $review, "rating" => $rating]);
     }
 
+    public function deleteReview($id) {
+        $statement = $this->pdo->prepare("DELETE FROM reviews WHERE id = :id");
+        $statement->execute(["id" => $id]);
+    }
+
     public function getReviewsByMovie($movie) {
         $statement = $this->pdo->prepare("SELECT r.*, u.name, u.username FROM reviews r INNER JOIN users u ON u.id = r.user_id WHERE r.movie_id = :movie_id ORDER BY r.date_posted DESC");
         $statement->execute(["movie_id" => $movie]);
